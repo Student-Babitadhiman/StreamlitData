@@ -7,7 +7,7 @@ def create_users_table():
     """Create users table in Snowflake if it doesn't exist"""
     try:
         session.sql("""
-            CREATE TABLE IF NOT EXISTS RAHUL.USERS.USER_ACCOUNTS (
+            CREATE TABLE IF NOT EXISTS BABITA.USERS.USER_ACCOUNTS (
                 USER_ID NUMBER AUTOINCREMENT,
                 USERNAME VARCHAR(50) UNIQUE NOT NULL,
                 PASSWORD_HASH VARCHAR(256) NOT NULL,
