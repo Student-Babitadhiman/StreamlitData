@@ -37,7 +37,7 @@ def register_user(username: str, password: str, email: str, full_name: str) -> b
         # password_hash = hash_password(password)
         # Using string formatting with quotes for string values
         query = f"""
-            INSERT INTO RAHUL.USERS.USER_ACCOUNTS (USERNAME, PASSWORD_HASH, EMAIL, FULL_NAME, ROLE)
+            INSERT INTO BABITA.USERS.USER_ACCOUNTS (USERNAME, PASSWORD_HASH, EMAIL, FULL_NAME, ROLE)
             VALUES ('{username}', '{password}', '{email}', '{full_name}', 'user')
         """
         session.sql(query).collect()
@@ -54,7 +54,7 @@ def validate_user(username: str, password: str) -> dict:
         # Using string formatting with quotes for string values
         query = f"""
             SELECT USERNAME, ROLE, EMAIL, FULL_NAME 
-            FROM RAHUL.USERS.USER_ACCOUNTS 
+            FROM BABITA.USERS.USER_ACCOUNTS 
             WHERE USERNAME = '{username}' 
             AND PASSWORD_HASH = '{password}' 
             AND STATUS = 'active'
@@ -71,7 +71,7 @@ def validate_user(username: str, password: str) -> dict:
 
             # Update last login
             update_query = f"""
-                UPDATE RAHUL.USERS.USER_ACCOUNTS 
+                UPDATE BABITA.USERS.USER_ACCOUNTS 
                 SET LAST_LOGIN = CURRENT_TIMESTAMP()
                 WHERE USERNAME = '{username}'
             """
@@ -80,4 +80,4 @@ def validate_user(username: str, password: str) -> dict:
         return None
     except Exception as e:
         print(f"Error validating user: {e}")
-        return None
+        return None 

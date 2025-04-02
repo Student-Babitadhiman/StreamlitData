@@ -359,7 +359,7 @@ def snowflake_user():
     # Fetch the user's current password (hashed) from the USER_ACCOUNTS table
     user_details = session.sql(f"""
         SELECT PASSWORD_HASH
-        FROM RAHUL.USERS.USER_ACCOUNTS
+        FROM BABITA.USERS.USER_ACCOUNTS
         WHERE USERNAME = '{username}';
     """).collect()
 

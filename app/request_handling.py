@@ -105,7 +105,7 @@ def update_approval_status(request_id: int, approved: bool, role: str, rejection
                 # Get the password from USER_ACCOUNTS table based on the username
                 user_details = session.sql(f"""
                        SELECT PASSWORD_HASH
-                       FROM RAHUL.USERS.USER_ACCOUNTS
+                       FROM BABITA.USERS.USER_ACCOUNTS
                        WHERE USERNAME = '{request_username}';
                    """).collect()
 
@@ -115,7 +115,7 @@ def update_approval_status(request_id: int, approved: bool, role: str, rejection
                 password_hash = user_details[0]['PASSWORD_HASH']
 
                 # Extract role from request details (assuming it's part of request details)
-                request_details_parsed = parse_user_request_details(request_details_content)
+                request_details_parsed = parse_request_details(request_details_content)
                 role = request_details_parsed.get('role', 'user')  # Default to 'user' if no role provided
 
                 # Create the user
@@ -508,7 +508,7 @@ def log_request(username: str, request_type: str, request_details: str, status: 
 
         # Construct the SQL statement dynamically
         sql = f"""
-        INSERT INTO RAHUL.USERS.REQUESTS (
+        INSERT INTO BABITA.USERS.REQUESTS (
             USERNAME, REQUEST_TYPE, REQUEST_DETAILS, STATUS, REQUEST_DATE,
             {approval_column}, {rejection_column}
         ) VALUES (

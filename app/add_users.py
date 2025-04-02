@@ -19,7 +19,7 @@ def add_predefined_users():
 
             # Insert the user
             session.sql("""
-                INSERT INTO RAHUL.USERS.USER_ACCOUNTS (USERNAME, PASSWORD_HASH, EMAIL, FULL_NAME, ROLE, STATUS)
+                INSERT INTO BABITA.USERS.USER_ACCOUNTS (USERNAME, PASSWORD_HASH, EMAIL, FULL_NAME, ROLE, STATUS)
                 VALUES (?, ?, ?, ?, ?, 'active')
             """).params(user["username"], password_hash, user["email"], user["full_name"], user["role"]).collect()
             print(f"User {user['username']} added successfully.")
