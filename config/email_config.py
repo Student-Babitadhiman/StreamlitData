@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-# Load environment variables from the .env file
+# # Load environment variables from the .env file
 load_dotenv()
 
 EMAIL_HOST = os.getenv("EMAIL_HOST")
@@ -11,3 +11,9 @@ EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 
 # Recipient email
 ACCOUNTADMIN_EMAIL = os.getenv("ACCOUNTADMIN_EMAIL")
+
+
+
+# print(f"EMAIL: {EMAIL_ADDRESS}, PASSWORD: {EMAIL_PASSWORD}****")
+
+ 
