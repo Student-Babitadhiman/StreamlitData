@@ -127,22 +127,9 @@ def main():
                         snowflake_user()
 
 
-            # elif st.session_state.role in ["ACCOUNTADMIN", "SYSADMIN"]:
-            #     tab1, tab2, tab3 = st.tabs(
-            #         ["📝 Submit Request", "✅ Approval Panel", "🔧 Role/User Management"]
-            #     )
-            #     with tab1:
-            #         with st.container():
-            #             render_request_form()
-            #     with tab2:
-            #         with st.container():
-            #             render_approval_panel()
-            #     with tab3:
-            #         with st.container():
-            #             render_roles_users_panel()
             elif st.session_state.role in ["ACCOUNTADMIN", "SYSADMIN"]:
-                tab1, tab2, tab3, tab4 = st.tabs(
-                    ["📝 Submit Request", "✅ Approval Panel", "🔧 Role/User Management", "👥 View Users"]
+                tab1, tab2, tab3 = st.tabs(
+                    ["📝 Submit Request", "✅ Approval Panel", "🔧 Role/User Management"]
                 )
                 with tab1:
                     with st.container():
@@ -153,12 +140,6 @@ def main():
                 with tab3:
                     with st.container():
                         render_roles_users_panel()
-                with tab4:
-                    with st.container():
-                        from app.ui_components import fetch_users
-                        users_df = fetch_users()
-                        st.dataframe(users_df)
-
 
 if __name__ == "__main__":
     main()
